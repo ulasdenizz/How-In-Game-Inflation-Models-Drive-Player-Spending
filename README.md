@@ -26,7 +26,7 @@ My plan is to analyze 3 datasets which are:
 
 By analyzing the usage rate of the current patch and the total HP pool differences between between patches, I want to find the correlation between those to datasets and if the correlation is high to be considered correlated I am going to compare the these 3 datasets to find the correlation between use rate, total HP pool and the revenue return of this correlation to the corporation.
 
-#Data Sources
+# Data Sources
 
 - Use rate data set is taken from an independent website **“YShelper”** which collects player submitted data of the final floor of the time sensitive challenges. [Dataset available here](https://app.yshelper.com/#/pages/rank/rank)
 - The total HP data set is taken from an independent website **“HomDGCat”** which uploads Abyss data from in-game files. [Dataset available here](https://homdgcat.wiki/gi/abyss)
