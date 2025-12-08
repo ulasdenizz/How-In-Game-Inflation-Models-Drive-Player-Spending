@@ -20,7 +20,7 @@ My interest in this project started from my regular experience playing Genshin I
 
 My plan is to analyze 3 datasets which are:
 
-- **Usege Rate** of the newest character in their featured patch,
+- **Usege Rate** of the newest character in their featured patch and 4 patch after that,
 - Abyss **Total HP (hit point) pool** by their respective patch,
 - Genshin Impacts **revenue** by the respective patch
 
