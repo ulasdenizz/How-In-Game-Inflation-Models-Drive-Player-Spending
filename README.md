@@ -32,3 +32,22 @@ By analyzing the usage rate of the current patch and the total HP pool differenc
 - The total HP data set is taken from an independent website **“HomDGCat”** which uploads Abyss data from in-game files. [Dataset available here](https://homdgcat.wiki/gi/abyss)
 - Genshin Impacts revenue data set is taken from the “AppMagic”. [Dataset available here](https://www.statista.com/statistics/1208573/genshin-impact-player-spending-app/?srsltid=AfmBOoof8XrUut8GmACbrlQlGxYN14597PhmI2-Gtqznn-fPD3GwgoAk)
 
+## Plans on collecting the data 
+
+ - My usage rate data is used in the mentioned website for usage trend analysis of individual characters for 29 patches. I entered the values of the specified characters manually to a dataset. I extracted the data of the characters usage rate after their release and 4 patches after that to show how this new character affected the general usage rate data. To show the effect of the characters, I took the weighted average of this data with the release patch taking 5 heaviness and the fifth patch after release taking 1 heaviness which improves the release patch effect of the newest character. By this weighted average data now I can calculate another weighted average called “generalized ”which calculates how much the new characters are being played by the player base giving the newest character more heaviness.
+
+- My hit point data manually extracted from the mentioned website above and listed as chamber by chamber for floor 12. I added these HP values to find the total HP value of a patch.
+
+- My revenue data is directly scrapped from a line chart that I found in the website mentioned above and extracted by an LLM.        
+
+## Fixing the data 
+
+Before putting these datasets to the exploratory data analysis the numbering of the patch numbers in the HP dataset is changed to the official values and the dates in the revenue dataset is changed to the official patch numbering to find a common ground between datasets. When calculating the  
+
+# Exploratory data Analysis 
+
+Different plotting techniques are used for the HP, usage rate and revenue datasets. Histograms are used for the HP and revenue data and line charts are used for the usage rate data to give a better visualization.
+
+# Hypothesis Testing 
+
+To calculate the significance of the correlation between the Usage rate and the HP I used Pearson correlation. After finding some correlation between these values I also calculated HP vs. Revenue and Usage rate vs. Revenue but used a partial correlation method to accommodate for the ageing of the game which naturally decreases the revenue (verified by the data analysis).
