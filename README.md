@@ -50,4 +50,10 @@ Different plotting techniques are used for the HP, usage rate and revenue datase
 
 # Hypothesis Testing 
 
-To calculate the significance of the correlation between the Usage rate and the HP I used Pearson correlation. After finding some correlation between these values I also calculated HP vs. Revenue and Usage rate vs. Revenue but used a partial correlation method to accommodate for the ageing of the game which naturally decreases the revenue (verified by the data analysis).
+My null hypothesis is the statement that there is no correlation between these 3 variables and these variables are not affecting each other.To calculate the significance of the correlation between the Usage rate and the HP I used Pearson correlation. After finding some correlation between these values I also calculated HP vs. Revenue and Usage rate vs. Revenue but used a partial correlation method to accommodate for the ageing of the game which naturally decreases the revenue (verified by the data analysis). After doing mentioned correlation tests, I find the p values of the given correlations (detaily explained in the Findings section). 
+
+# Findings
+
+## EDA 
+
+## Hypothesis Testing
