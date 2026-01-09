@@ -110,3 +110,35 @@ The main reason that we can not reject the null hypothesis is when calculating t
 
 # Machine Learning
 
+## Selecting The Machine Learning Model
+
+Whwen selecting the model, I conducted a comparative analysis of five distinct regression algorithms; Linear Regression, Polynomial Regression (Degree 2), Decision Tree Regressor, K-Nearest Neighbors (KNN), and Random Forest Regressor to determine which could most accurately predict the target variable. I utilized a standard train test split method, isolating a portion of the data to evaluate how well each model generalized to unseen examples. The primary performance metric for this evaluation was the Root Mean Squared Error (RMSE), which evaluates the average deviation of the model's predictions from the actual values. After training each model and calculating their respective RMSE scores on the test set, I compared the results to identify the algorithm with the lowest error. After the comparison **The Random Forest Regressor** outperformed the other models, achieving the lowest RMSE, which indicated it was the most robust at capturing the complex, non-linear relationships within the dataset.
+
+- Simple Regression         : 12.4195
+- Multiple Regression       : 14.4097
+- Polynomial Regression     : 17.3394
+- Random Forest             : 8.7098
+- k-NN                      : 10.3110
+- Decision Tree             : 10.1559
+
+## Error (RMSE) Reduction
+
+To ensure the reliability of the model, I implemented a quirky error reduction strategy centered on minimizing the Root Mean Squared Error (RMSE). By training the model with the missing data that we used to do the calculation, I was able to significantly reduce this error. The Random Forest algorithm reduced the overfitting often seen in single Decision Trees by averaging multiple predictions, leading to a more stable and generalized output. This approach resulted in a marked decrease in RMSE on the validation set, confirming that the final model had effectively learned the underlying patterns rather than simply memorizing the training data.
+
+- Test RMSE (Split Data)  : 8.7098
+- Final RMSE (Full Data)  : 3.0387
+
+Below is the Supervised Machine Learning Model's predictions using The Random Forest Regression
+and the actual data
+
+![Final Model Fit: Random Forest](images/download.png)
+
+- Accuracy for the **Difficulty (Abyss HP)** Prediction  : 98.98%
+- Accuracy for the **Usage Rate** Prediction             : 89.45%
+- Accuracy for the **Revenue (Sales)** Prediction        : 83.13%
+
+## Testing Supervised Model with Actual Data
+
+While I was doing these project there was a new characters 
+
+
