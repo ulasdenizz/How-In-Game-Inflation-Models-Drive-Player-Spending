@@ -78,7 +78,7 @@ We can not say anyting about this graph because of the unpredictable way of the 
 
 The following scattered plot shows the partial correlation residuals between **HP spikes** and **Revenue spikes**. The x-axis is HP residuals, and the y-axis is Revenue residuals both in milions.
 
-![Effect of HP Spikes on Revenue](images/Graph_4_Partial_Corr_Scatter.jpg)
+![Effect of HP Spikes on Revenue](images/Graph_4_Partial_Corr_Scatter.png)
 
 We can see that there is a partial correlation between these values which is around 31%.
 
@@ -112,7 +112,7 @@ The main reason that we can not reject the null hypothesis is when calculating t
 
 ## Selecting The Machine Learning Model
 
-Whwen selecting the model, I conducted a comparative analysis of five distinct regression algorithms; Linear Regression, Polynomial Regression (Degree 2), Decision Tree Regressor, K-Nearest Neighbors (KNN), and Random Forest Regressor to determine which could most accurately predict the target variable. I utilized a standard train test split method, isolating a portion of the data to evaluate how well each model generalized to unseen examples. The primary performance metric for this evaluation was the Root Mean Squared Error (RMSE), which evaluates the average deviation of the model's predictions from the actual values. After training each model and calculating their respective RMSE scores on the test set, I compared the results to identify the algorithm with the lowest error. After the comparison **The Random Forest Regressor** outperformed the other models, achieving the lowest RMSE, which indicated it was the most robust at capturing the complex, non-linear relationships within the dataset.
+When selecting the model, I conducted a comparative analysis of five distinct regression algorithms; Linear Regression, Polynomial Regression (Degree 2), Decision Tree Regressor, K-Nearest Neighbors (KNN), and Random Forest Regressor to determine which could most accurately predict the target variable. I utilized a standard train test split method, isolating a portion of the data to evaluate how well each model generalized to unseen examples. The primary performance metric for this evaluation was the Root Mean Squared Error (RMSE), which evaluates the average deviation of the model's predictions from the actual values. After training each model and calculating their respective RMSE scores on the test set, I compared the results to identify the algorithm with the lowest error. After the comparison **The Random Forest Regressor** outperformed the other models, achieving the lowest RMSE, which indicated it was the most robust at capturing the complex, non-linear relationships within the dataset.
 
 - Simple Regression         : 12.4195
 - Multiple Regression       : 14.4097
@@ -128,10 +128,14 @@ To ensure the reliability of the model, I implemented a quirky error reduction s
 - Test RMSE (Split Data)  : 8.7098
 - Final RMSE (Full Data)  : 3.0387
 
-Below is the Supervised Machine Learning Model's predictions using The Random Forest Regression
+Below are the Supervised Machine Learning Model's predictions of **HP, Usage Rate and Revenue** using The Random Forest Regression
 and the actual data
 
+![Abyss HP Prediction (Historical Data Only)](images/download_1.png)
+
 ![Final Model Fit: Random Forest](images/download.png)
+
+![Revenue Prediction (Historical Data)](images/Revenue_Historical.png)
 
 - Accuracy for the **Difficulty (Abyss HP)** Prediction  : 98.98%
 - Accuracy for the **Usage Rate** Prediction             : 89.45%
@@ -139,6 +143,37 @@ and the actual data
 
 ## Testing Supervised Model with Actual Data
 
-While I was doing these project there was a new characters 
+While I was doing this project, The 6.2 patch is release which is featuring a new Abyss and "Durin" which is the newest character. By gathering the new Abyss Total HP data and the usage rate of the Durin, I assessed the model’s ability to correctly predict missing metrics such as predicting the difficulty of the Abyss based solely on character usage trends. The results verified a high degree of consasticy, with the model accurately predicting the difficulty curve within a negligible margin of error, thereby confirming its reliability as a predictive tool for future content analysis.
+
+Below is a plot of the predictions of the HP and Usage rate against patch number respectively. The Red Star being the actual data and the Green cross being the prediction of the model. We can see that the predictions of the model is reliable to be used in future iterations.
+
+![Abyss HP Prediction (History vs Patch 6.2)](images/Updated_HP_Prediction_Graph.png)
+
+![Usage Rate Prediction (History vs Patch 6.2)](images/Updated_Usage_Prediction_Graph.png)
+
+# Limitations and Future Work
+
+## Limitations
+
+- Manual Data Gathering Constraints: A significant limitation of this study was the reliance on hand-gathered data. The nature of manually extracting and verifying statistics from various community archives restricted the dataset's volume. This labor-intensive process made it difficult to scale the analysis and hindered some data gathering processes (not having a reliable Revenue data after patch 5.6, etc.).
+
+- Accuracy and Generalization: To make the diverse dataset manageable, high-dimensional game data was often generalized. For instance, "Abyss Difficulty" was condensed into a single "Total HP" metric, and character performance was simplified to "Usage Rate." This generalization inevitably obscures the nuance of gameplay mechanics—such as enemy elemental resistances, attack patterns, and team synergy—potentially leading to oversimplified conclusions that do not fully reflect the game's actual complexity which also overshadowed most of teh meta defining characters.
+
+- Complexity of Actual Gameplay Data: The true state of the game involves intricate mathematical formulas for damage calculation, elemental reactions, and artifact randomness (RNG). Attempting to model player spending and character popularity without accounting for these deep mechanical layers means the model captures correlation but lacks the causal depth to explain why a character is popular (e.g., a character might have a low usage rate but high revenue due to aesthetic appeal rather than meta strength).
+
+- Selection Bias in Survey Data: The usage rate data is derived primarily from player submitted surveys (Spiral Abyss statistics). This introduces a strong selection bias, as players who voluntarily submit their data tend to be more "hardcore" or meta-oriented than the average casual player. Consequently, the model likely overestimates the impact of game difficulty on the general player base, as it does not account for the millions of casual players who do not participate in these surveys.
+
+- Ethical and Permission Concerns: The analysis relies on third-party data aggregations without explicit permission from the original survey conductors or the individual players. While the data was accessed from public-facing summaries, the secondary use of community-generated data raises ethical questions regarding consent and data ownership. This lack of formal authorization limits the reproducibility and commercial viability of the study.
+
+## Future Work 
+
+- Automated Data Pipelines: Future iterations of this project should replace manual data entry with automated web scrapers or API integrations. This would allow for the collection of real time data, significantly reducing human error and enabling the analysis of a much larger, more comprehensive dataset.
+
+- Granular Feature Engineering: To address the issue of over-generalization, future models should incorporate more specific features. This includes breaking down enemy exclusive mechanics and elemental immunity, and segmenting "Revenue" by region (CN vs. Global , etc.) to account for cultural differences in spending habits.
+
+- Bias Correction and Broader Sampling: To mitigate the "hardcore" bias, future work could attempt to integrate data sources that reflect the casual player experience, such as official developer statistics. (if released)
+
+
+
 
 
