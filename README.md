@@ -56,4 +56,57 @@ My null hypothesis is the statement that there is no correlation between these 3
 
 ## EDA 
 
+The following histogram shows the Abyss total HP with a Trend line. The x-axis is the patch of the information, and the y-axis is the HP value of the current patch in millions.
+
+![Graph 1 HP Analysis](images/Graph_1_HP.png)
+
+We can see that there is a clear trend that the total HP value by patch is increasing with nearly every patch.
+
+The following histogram shows the Revenue with a Trend line. The x-axis is the patch of the information, and the y-axis is the Revenue made in the current patch in million USDs.
+
+![Revenue by Patch](images/Graph_2_Revenue.png)
+
+We can see that there is a clear trend that the revenue decreasing with nearly every patch with some exceptions like 5.2 and 4.5 which is effected by meta defining new characters.
+
+The following histogram shows the new characters usage rate with Trend line. The x-axis is the patch of the information, and the y-axis is usage rate of the newest character in precentage. Because I want to look at the new Chracters effect on the meta I took the weighted average of the 5 patches after the characters release. 
+
+![New Character Usage Rate by Patch](images/Graph_3_Usage_Line.png)
+
+We can not say anyting about this graph because of the unpredictable way of the data and the effect of the story that we do not include for simplicity.
+
 ## Hypothesis Testing
+
+The following scattered plot shows the partial correlation residuals between **HP spikes** and **Revenue spikes**. The x-axis is HP residuals, and the y-axis is Revenue residuals both in milions.
+
+![Effect of HP Spikes on Revenue](images/Graph_4_Partial_Corr_Scatter.jpg)
+
+We can see that there is a partial correlation between these values which is around 31%.
+
+The following scattered plot shows the partial correlation residuals between **Usage rate** and **Abyss Total HP**. The x-axis is HP residuals, and the y-axis is Revenue residuals.
+
+![Usage Rate vs Abyss HP Correlation](images/Graph_6_HP_Usage_Raw.png)
+
+We can see that there is a partial correlation between these values which is around 33%.
+
+The following scattered plot shows the partial correlation residuals between **Usage rate** spikes and **Revenue spikes**. The x-axis is HP residuals, and the y-axis is Revenue residuals.
+
+![Revenue vs Usage Rate Partial Correlation](images/Graph_7_Rev_Usage_Partial.png)
+
+We can see that there is a partial correlation between these values which is around 33%.
+
+There is a correlation matrix for better visualization which uses controlled time
+
+![Partial Correlation Matrix](images/Graph_5_Partial_Corr_Matrix.png)
+
+After getting Pearson correlation values. We can calculate the p-values of these correlations respectively to find the differances are significant or not.
+
+- Correlation between Abyss HP and Usage Rate is 0.3318. When we calculate the p-value, it aproximates to 0.13137. Because it is bigger than 0.05, We **fail to reject the null hypothesis** but can say that **there is a correlation but the correlation is not significant enough**.
+  
+- Partial correlation between Revenue and Usage Rate is 0.3106. When we calculate the p-value, it aproximates to 0.17063. Because it is bigger than 0.05, We **fail to reject the null hypothesis** but can say that **there is a correlation but the correlation is not significant enough**.
+
+- Partial correlation between Revenue and Total Abyss HP is 0.3344. When we calculate the p-value, it aproximates to 0.13843. Because it is bigger than 0.05, We **fail to reject the null hypothesis** but can say that **there is a correlation but the correlation is not significant enough**.
+
+The main reason that we can not reject the null hypothesis is when calculating the significance of the character we are not considering any other value than them being the newest character which complicate the predictibility of the usage data. More will be explained in the **Limitations and Future Work** part.  
+
+# Machine Learning
+
